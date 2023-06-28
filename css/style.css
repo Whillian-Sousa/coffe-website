@@ -150,7 +150,12 @@ img{
   height: 7rem;
   width: 100%;
   z-index: var(--z-fixed);
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.199); */
+  transition: var(--tran-0-5);
+}
+.header-active{
+  height: 6rem;
+  background-color: var(--white-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.199);
 }
 
 /* nav */
@@ -165,6 +170,12 @@ img{
 .nav-link,
 .phone-icon,
 .phone-number{color: var(--white-color);}
+
+.header-active .logo-icon,
+.header-active .logo-text,
+.header-active .nav-link,
+.header-active .phone-icon,
+.header-active .phone-number{color: var(--text-color);}
 
 .logo-icon,
 .phone-icon{font-size: 2rem;}
@@ -630,7 +641,7 @@ img{
 /* Scroll Up */
 .scrollUp-btn{
   position: fixed;
-  bottom: 3rem;
+  bottom: -30%;
   right: 3rem;
   height: 3rem;
   width: 3rem;
@@ -642,7 +653,10 @@ img{
   background-color: var(--white-color);
   z-index: var(--z-overlay);
   justify-content: center;
+  transition: var(--tran-0-3);
 }
+.scrollUpBtn-active{bottom: 3rem;}
+
 .scrollUp-icon{
   opacity: .9;
   transition: var(--tran-0-3);
@@ -655,6 +669,11 @@ img{
 @media screen and (max-width: 1150px) {
   .swiper-button-prev{left: 10rem;}
   .swiper-button-next{right: 10rem;}
+}
+
+@media screen and (max-width: 1000px) {
+  .swiper-button-prev{left: 3rem;}
+  .swiper-button-next{right: 3rem;}
   .section-description{padding: 0 8rem;}
   .about-imageContent{height: 400px;}
   .aboutImg-textBox{padding: 1.5rem 2rem;}
@@ -662,10 +681,52 @@ img{
     grid-template-columns: 1.5fr 1fr;
     column-gap: 3rem;
   }
+  .brand-images{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 }
 
 @media screen and (max-width: 768px) {
+  
   .swiper-navBtn{visibility: hidden;}
   .swiper-pagination-bullet{visibility: visible;}
-}
+  .section{padding: 7rem 1rem;}
   
+  .section-description,
+  .review-quote{padding: 0 6rem;}
+  
+  .about-content{
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+    justify-items: center;
+  }
+  .about .content-subtitle,
+  .about .content-title,
+  .about .content-description {text-align: center;}
+  
+  .about-details{justify-items: center;}
+  
+  .about-lists{justify-content: center;}
+  
+  .menu .menu-content{
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+  .footer-container{row-gap: 1.5rem;}
+}
+
+@media screen and (max-width: 600px) {
+  .container{padding: .5rem;}
+  .section-description,
+  .review-quote{padding: 0;}
+
+  .brand-images{grid-template-columns: repeat(2,1fr);}
+
+  .footer-container{
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+  .footer-content{justify-items: center;}
+  .footer-linkContent{justify-items: center;}
+}
