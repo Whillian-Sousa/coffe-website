@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 html{
-    font-size: 62.5%; /* 1rem=10px */
-}
+  font-size: 62.5%; /* 1rem=10px */
+  scroll-behavior: smooth;
+  }
 
 /* Variables */
 :root{
@@ -571,18 +572,98 @@ img{
 
 /* Footer */
 .footer{
+  padding: 4rem 2rem 3rem;
   background-color: var(--section-bg);
 }
 .footer .content-description,
 .footer .map-icon,
+.footer .location-text{color: var(--text-color-light);}
+.footer-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 7rem;
+  align-items: center;
+}
+.footer-content{
+  display: grid;
+  row-gap: 3rem;
+}
+.footer .content-description,
 .footer .location-text{
-  color: var(--text-color-light);
+  text-align: left;
+  font-size: var(--small-font);
+}
+.footer .map-icon{
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+.footer-linkContent{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: end;
+}
+.footer-links{
+  display: grid;
+  row-gap: 1rem;
+  font-weight: var(--font-medium);
+  color: var(--white-color);
+}
+.footer-link{
+  font-size: var(--small-font);
+  color: rgba(255, 255, 255, .5);
+  transition: var(--tran-0-3);
+}
+.footer-link:hover{
+  color: rgba(255, 255, 255, .8);
+}
+.footer-copyRight{
+  max-width: 970px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 3rem;
+  margin-top: 3rem;
+  font-size: var(--small-font);
+  border-top: 2px solid var(--text-color-light);
+  color: rgba(255, 255, 255, .8);
 }
 
 /* Scroll Up */
-
+.scrollUp-btn{
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+  border-radius: 4px;
+  color: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+  background-color: var(--white-color);
+  z-index: var(--z-overlay);
+  justify-content: center;
+}
+.scrollUp-icon{
+  opacity: .9;
+  transition: var(--tran-0-3);
+}
+.scrollUp-btn:hover .scrollUp-icon{
+  opacity: 1;
+}
 
 /* Responsive media */
+@media screen and (max-width: 1150px) {
+  .swiper-button-prev{left: 10rem;}
+  .swiper-button-next{right: 10rem;}
+  .section-description{padding: 0 8rem;}
+  .about-imageContent{height: 400px;}
+  .aboutImg-textBox{padding: 1.5rem 2rem;}
+  .menu .menu-content{
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 3rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .swiper-navBtn{visibility: hidden;}
   .swiper-pagination-bullet{visibility: visible;}
